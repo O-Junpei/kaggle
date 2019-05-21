@@ -1,9 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-
-# 参考
-# https://www.codexa.net/kaggle-titanic-beginner/
 
 # データセットをインポート
 train = pd.read_csv("./train.csv")
@@ -70,24 +66,22 @@ test["Embarked"] = test["Embarked"].map({"S": 0, "C": 1, "Q": 2})
 # 数字に変換できていることを確認
 print(test.head())
 
-from sklearn import tree
 
-#
-# 「train」の目的変数と説明変数の値を取得
+# LightGBM
+import lightgbm as lgb
+
+# その1
+# 下記のパラメータでモデルを学習する
 target = train["Survived"].values
 features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
 
-# # 決定木の作成
-my_tree_one = tree.DecisionTreeClassifier()
-my_tree_one = my_tree_one.fit(features_one, target)
+# モデル作成
+model = lgb.LGBMClassifier()
+model.fit(features_one, target)
 
-# # 「test」の説明変数の値を取得
+# 予測
 test_features = test[["Pclass", "Sex", "Age", "Fare"]].values
-#
-# # 「test」の説明変数を使って「my_tree_one」のモデルで予測
-my_prediction = my_tree_one.predict(test_features)
-
-# print(my_prediction)
+my_prediction = model.predict(test_features)
 
 # PassengerIdを取得
 PassengerId = np.array(test["PassengerId"]).astype(int)
@@ -96,23 +90,4 @@ PassengerId = np.array(test["PassengerId"]).astype(int)
 my_solution = pd.DataFrame(my_prediction, PassengerId, columns=["Survived"])
 
 # my_tree_one.csvとして書き出し
-my_solution.to_csv("my_tree_one.csv", index_label=["PassengerId"])
-
-# その２
-# 追加となった項目も含めて予測モデルその2で使う値を取り出す
-features_two = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
-
-# 決定木の作成とアーギュメントの設定
-max_depth = 10
-min_samples_split = 5
-my_tree_two = tree.DecisionTreeClassifier(max_depth=max_depth, min_samples_split=min_samples_split, random_state=1)
-my_tree_two = my_tree_two.fit(features_two, target)
-
-# tsetから「その2」で使う項目の値を取り出す
-test_features_2 = test[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
-
-# 「その2」の決定木を使って予測をしてCSVへ書き出す
-my_prediction_tree_two = my_tree_two.predict(test_features_2)
-PassengerId = np.array(test["PassengerId"]).astype(int)
-my_solution_tree_two = pd.DataFrame(my_prediction_tree_two, PassengerId, columns=["Survived"])
-my_solution_tree_two.to_csv("my_tree_two.csv", index_label=["PassengerId"])
+my_solution.to_csv("light_gbn1.csv", index_label=["PassengerId"])
