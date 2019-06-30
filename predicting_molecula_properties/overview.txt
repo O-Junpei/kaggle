@@ -1,0 +1,38 @@
+Think you can use your data science smarts to make big predictions at a molecular level?
+あなたが分子レベルで大きな予測をするためにあなたのデータサイエンススマートを使うことができると思いますか？
+
+This challenge aims to predict interactions between atoms. Imaging technologies like MRI enable us to see and understand the molecular composition of tissues. Nuclear Magnetic Resonance (NMR) is a closely related technology which uses the same principles to understand the structure and dynamics of proteins and molecules.
+この課題は、原子間の相互作用を予測することを目的としています。 MRIのようなイメージング技術は、私たちが組織の分子組成を見て理解することを可能にします。 核磁気共鳴（ＮＭＲ）は、タンパク質および分子の構造および動力学を理解するために同じ原理を使用する密接に関連した技術である。
+
+Researchers around the world conduct NMR experiments to further understanding of the structure and dynamics of molecules, across areas like environmental science, pharmaceutical science, and materials science.
+環境科学、薬学、材料科学などの分野で、分子の構造とダイナミクスをさらに理解するために、世界中の研究者がNMR実験を行っています。
+
+This competition is hosted by members of the CHemistry and Mathematics in Phase Space (CHAMPS) at the University of Bristol, Cardiff University, Imperial College and the University of Leeds. Winning teams will have an opportunity to partner with this multi-university research program on an academic publication
+このコンペティションは、ブリストル大学、カーディフ大学、インペリアルカレッジ、リーズ大学のフェーズスペースにおける化学および数学（CHAMPS）のメンバーによってホストされています。 優勝チームは学術出版物でこの複数大学の研究プログラムと提携する機会があります。
+
+
+Your Challenge
+
+In this competition, you will develop an algorithm that can predict the magnetic interaction between two atoms in a molecule (i.e., the scalar coupling constant).
+このコンペティションでは、分子内の2つの原子間の磁気的相互作用（つまりスカラーカップリング定数）を予測できるアルゴリズムを開発します。
+
+Once the competition finishes, CHAMPS would like to invite the top teams to present their work, discuss the details of their models, and work with them to write a joint research publication which discusses an open-source implementation of the solution.
+競争が終了したら、CHAMPSはトップチームに彼らの仕事を発表し、彼らのモデルの詳細を話し合い、そして彼らと協力して解決策のオープンソース実装を議論する共同研究出版物を書くことを望みます。
+
+
+About Scalar Coupling
+
+Using NMR to gain insight into a molecule’s structure and dynamics depends on the ability to accurately predict so-called “scalar couplings”. These are effectively the magnetic interactions between a pair of atoms. The strength of this magnetic interaction depends on intervening electrons and chemical bonds that make up a molecule’s three-dimensional structure.
+NMRを使用して分子の構造とダイナミクスを理解することは、いわゆる「スカラーカップリング」を正確に予測する能力にかかっています。 これらは事実上一対の原子間の磁気的相互作用です。 この磁気的相互作用の強さは、分子の立体構造を構成する介在電子と化学結合に依存します。
+
+Using state-of-the-art methods from quantum mechanics, it is possible to accurately calculate scalar coupling constants given only a 3D molecular structure as input. However, these quantum mechanics calculations are extremely expensive (days or weeks per molecule), and therefore have limited applicability in day-to-day workflows.
+量子力学からの最先端の方法を用いて、入力として三次元分子構造のみを与えられたスカラーカップリング定数を正確に計算することが可能である。 しかしながら、これらの量子力学計算は非常に高価であり（分子当たりの日数または週数）、したがって日々のワークフローにおける適用性は限られている。
+
+A fast and reliable method to predict these interactions will allow medicinal chemists to gain structural insights faster and cheaper, enabling scientists to understand how the 3D chemical structure of a molecule affects its properties and behavior.
+これらの相互作用を予測するための速くて信頼性の高い方法は、薬化学者がより早くそしてより安価に構造的洞察を得ることを可能にし、科学者が分子の3D化学構造がその性質と挙動にどのように影響するかを理解することを可能にする。
+
+Ultimately, such tools will enable researchers to make progress in a range of important problems, like designing molecules to carry out specific cellular tasks, or designing better drug molecules to fight disease.
+最終的には、そのようなツールは研究者が特定の細胞タスクを実行するために分子を設計すること、または病気と戦うためにより良い薬物分子を設計することのような一連の重要な問題において進歩することを可能にする。
+
+Join the CHAMPS Scalar Coupling challenge to apply predictive analytics to chemistry and chemical biology.
+CHAMPSスカラーカップリングチャレンジに参加して、予測分析を化学および化学生物学に適用してください。

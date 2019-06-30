@@ -91,3 +91,26 @@ my_solution = pd.DataFrame(my_prediction, PassengerId, columns=["Survived"])
 
 # my_tree_one.csvとして書き出し
 my_solution.to_csv("light_gbn1.csv", index_label=["PassengerId"])
+
+
+# その2
+# 下記のパラメータでモデルを学習する
+target2 = train["Survived"].values
+features_one2 = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
+#
+# モデル作成
+model2 = lgb.LGBMClassifier()
+model2.fit(features_one2, target2)
+#
+# 予測
+test_features2 = test[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
+my_prediction2 = model2.predict(test_features2)
+
+# PassengerIdを取得
+PassengerId2 = np.array(test["PassengerId"]).astype(int)
+
+# my_prediction(予測データ）とPassengerIdをデータフレームへ落とし込む
+my_solution2 = pd.DataFrame(my_prediction2, PassengerId2, columns=["Survived"])
+
+# my_tree_one.csvとして書き出し
+my_solution2.to_csv("light_gbn2.csv", index_label=["PassengerId"])
